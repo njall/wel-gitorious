@@ -45,6 +45,13 @@
             repository.id) -%>
      </div>
   <% end -%>
+  <% unless repository.report_link.blank? -%>
+    <div class="infobox">
+       Link to Technical Report: <%= auto_link(repository.report_link) %>
+    </div>
+  <% end -%>
+  <p><p><br>
+  
   <div class="infobox">
     <%= render :partial => "repositories/clone_urls",
          :locals => {:repository => repository} -%>
