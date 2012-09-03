@@ -329,7 +329,7 @@ class Project < ActiveRecord::Base
     self.suspended_at = Time.now
   end
 
-  protected
+  
     def create_wiki_repository
       self.wiki_repository = Repository.create!({
         :user => self.user,
@@ -340,6 +340,7 @@ class Project < ActiveRecord::Base
       })
     end
 
+  protected
     def create_default_merge_request_statuses
       MergeRequestStatus.create_defaults_for_project(self)
     end

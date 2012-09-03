@@ -33,14 +33,11 @@
         <p><strong><%= t("views.layout.system_notice") %>:</strong> <%= GitoriousConfig["system_message"] -%></p>
       </div>
     <% end -%>
-    <ul id="user-nav">
-      <li><%= link_to("Dashboard", root_path) %></li>
-      <%= render "layouts/login_logout" -%>
-    </ul>
-    <div id="header">
+   <div id="header">
       <h1 id="logo">
-        <%= logo_link %>
+        <%# = logo_link %>
       </h1>
+      <h1 id="weltitle"> The Web Ergonomics Lab Code Repository </h1>
       <ul id="menu">
         <% if GitoriousConfig['public_mode'] || logged_in? -%>
           <li class="activity"><%= link_to "Activities", activity_path -%></li>
@@ -49,6 +46,11 @@
         <% end -%>
       </ul>
     </div>
+    <ul id="user-nav">
+      <li><%= link_to("Dashboard", root_path) %></li>
+      <%= render "layouts/login_logout" -%>
+    </ul>
+ 
     <div id="top-bar">
       <ul id="breadcrumbs">
         <%= yield :breadcrumbs -%>
@@ -72,8 +74,8 @@
     </div>
     <div id="footer">
       <%= render :partial => "layouts/common_footer" -%>
-      <%= render :partial => "layouts/footer_links" -%>
       <%= render :partial => "layouts/footer_blurb" %>
+      <%# = render :partial => "layouts/footer_links" -%>
       <div class="clear"></div>
     </div>
   </div>

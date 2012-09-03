@@ -39,7 +39,8 @@ body#sessions #wrapper {
     float: left;
     padding-bottom: 20px;
     margin-top: -7px;
-    background: url(../img/external/content-bg.png) repeat-y center;
+   /* background: url(../img/external/content-bg.png) repeat-y center;*/
+   /* background: url(../images/uom-logo.png);*/
 }
 
 #site #content-container #content {

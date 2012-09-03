@@ -4,7 +4,7 @@ coverage/*
 public/cache/*
 public/images/graphs/*
 config/database.yml
-config/gitorious.yml
+repositories/*
 config/ultrasphinx/*.conf
 config/authentication.yml
 config/broker.yml
