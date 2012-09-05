@@ -2,6 +2,7 @@ unless defined? GitoriousConfig
   GitoriousConfig = c = YAML::load_file(File.join(Rails.root,"config/gitorious.yml"))[RAILS_ENV]
 
   # make the default be publicly open
+  GitoriousConfig["registration_on"] = false
   GitoriousConfig["public_mode"] = true if GitoriousConfig["public_mode"].nil?
   GitoriousConfig["locale"] = "en" if GitoriousConfig["locale"].nil?
   GitoriousConfig["is_gitorious_dot_org"] = true if GitoriousConfig["is_gitorious_dot_org"].nil?

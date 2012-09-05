@@ -25,6 +25,7 @@ class UsersController < ApplicationController
   skip_before_filter :public_and_logged_in,
     :only => [:pending_activation, :activate, :forgot_password,
               :forgot_password_create, :reset_password]
+  before_filter :redirect_if_registration_disabled
   before_filter :require_not_logged_in, :only => [:pending_activation]
   before_filter :login_required,
     :only => [:edit, :update, :password, :update_password, :avatar]
@@ -44,6 +45,10 @@ class UsersController < ApplicationController
 
   # render new.rhtml
   def new
+  end
+
+  def redirect_if_registration_disabled
+   redirect_to :controller => "activities" if !GitoriousConfig["registration_on"]
   end
 
   def show
