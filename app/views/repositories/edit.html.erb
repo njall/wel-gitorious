@@ -24,18 +24,23 @@
 <%= error_messages_for :repository -%>
 <% form_for(repo_owner_path(@repository.reload, [@repository.project, @repository])) do |f| -%>
   <p>
+     <%= f.label :report_link -%>
+     <span class="hint">: Set the Technical Report URL </span></br>
+     <%= f.text_field :report_link -%>
+  </p>
+  <p>
     <%= f.label :description -%>
-    <span class="hint">(<%= markdown_hint -%>)</span>:<br />
+    <span class="hint">: (<%= markdown_hint -%>)</span>:<br />
     <%= f.text_area :description, :class => "text wide medium" -%>
   </p>
   <p>
     <%= f.label :name %>
-    <span class="hint">Please note that if you change the name, all URLs will be updated immediately</span> <br />
+    <span class="hint">:  Please note that if you change the name, all URLs will be updated immediately</span> <br />
     <%= f.text_field :name %>
   </p>
   <p>
     <%= f.label :head %>
-    <span class="hint">Change the symbolic ref the HEAD in the git repository points to</span>:<br />
+    <span class="hint">:  Change the symbolic ref the HEAD in the git repository points to</span>:<br />
     <%= f.select(:head, @heads.map{|h| [h.name, h.name] },
           :selected => @repository.head ? @repository.head.name : nil) -%>
   </p>
